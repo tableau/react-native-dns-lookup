@@ -1,0 +1,3 @@
+
+@interface RNDnsLookup : NSObject
+@end

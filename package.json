@@ -1,0 +1,21 @@
+
+{
+  "name": "react-native-dns-lookup",
+  "version": "1.0.0",
+  "author": "Tableau",
+  "license": "MIT",
+  "description": "Lookup IP Addresses for a hostname",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/tableau/react-native-dns-lookup.git"
+  },
+  "homepage": "https://github.com/tableau/react-native-dns-lookup#readme",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "keywords": [
+    "dns"
+  ],
+  "peerDependencies": {
+    "react-native": "*"
+  }
+}
