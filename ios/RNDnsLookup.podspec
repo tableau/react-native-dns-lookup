@@ -1,23 +1,22 @@
+require 'json'
+
+package = JSON.parse(File.read(File.join(__dir__, '../package.json')))
 
 Pod::Spec.new do |s|
   s.name         = "RNDnsLookup"
-  s.version      = "1.0.0"
+  s.version      = package['version']
   s.summary      = "RNDnsLookup"
-  s.description  = <<-DESC
-                  RNDnsLookup
-                   DESC
-  s.homepage     = "N/A"
+
+  s.homepage     = "https://github.com/tableau/react-native-dns-lookup#readme"
   s.license      = "MIT"
-  # s.license      = { :type => "MIT", :file => "FILE_LICENSE" }
-  s.author             = { "author" => "author@domain.cn" }
+
+  s.author       = { "Tableau" => "github@tableau.com" }
   s.platform     = :ios, "7.0"
   s.source       = { :git => "https://github.com/author/RNDnsLookup.git", :tag => "master" }
-  s.source_files  = "RNDnsLookup/**/*.{h,m}"
+  s.source_files = "RNDnsLookup/**/*.{h,m}"
   s.requires_arc = true
 
-
   s.dependency "React"
-  #s.dependency "others"
 
 end
 
