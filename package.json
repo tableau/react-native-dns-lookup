@@ -1,6 +1,6 @@
 {
   "name": "react-native-dns-lookup",
-  "version": "1.0.5",
+  "version": "1.0.6",
   "author": "Tableau",
   "license": "MIT",
   "description": "Lookup IP Addresses for a hostname",
