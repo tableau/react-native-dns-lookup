@@ -23,20 +23,23 @@ public class RNDnsLookupModule extends BaseJavaModule {
 
     @ReactMethod
     public void getIpAddresses(String hostname, Promise promise) {
-        if (hostname == null || promise == null) {
-            promise.reject(new Error("Arguments cannot be null"));
-        }
-
-        try {
-            InetAddress[] rawAddresses = InetAddress.getAllByName(hostname);
-            WritableArray addresses = Arguments.createArray();
-            for (int i = 0; i < rawAddresses.length; i++) {
-                addresses.pushString(rawAddresses[i].getHostAddress());
+        Thread t = new Thread(() -> {
+            if (hostname == null || promise == null) {
+                promise.reject(new Error("Arguments cannot be null"));
             }
-            promise.resolve(addresses);
-        } catch (Exception e) {
-            promise.reject(e);
-        }
+    
+            try {
+                InetAddress[] rawAddresses = InetAddress.getAllByName(hostname);
+                WritableArray addresses = Arguments.createArray();
+                for (int i = 0; i < rawAddresses.length; i++) {
+                    addresses.pushString(rawAddresses[i].getHostAddress());
+                }
+                promise.resolve(addresses);
+            } catch (Exception e) {
+                promise.reject(e);
+            }
+        });
+        t.start();
     }
 
     @Override
